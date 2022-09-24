@@ -43,14 +43,15 @@ INSTALLED_APPS = [
 ]
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-    'ROTATE_REFRESH_TOKENS': False,
-    'BLACKLIST_AFTER_ROTATION': True,
-    'UPDATE_LAST_LOGIN': False,
-    'ALGORITHM': 'HS256',
-    'USER_ID_FIELD': 'id',
-    'USER_ID_CLAIM': 'user_id',
+        'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+        'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+        'ROTATE_REFRESH_TOKENS': False,
+        'BLACKLIST_AFTER_ROTATION': True,
+        'UPDATE_LAST_LOGIN': False,
+        
+        'ALGORITHM': 'HS256',
+        'USER_ID_FIELD': 'id',
+        'USER_ID_CLAIM': 'user_id',
 }
 
 MIDDLEWARE = [
@@ -64,13 +65,15 @@ MIDDLEWARE = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.AllowAny',
+        'DEFAULT_PERMISSION_CLASSES': (
+                'rest_framework.permissions.AllowAny',
         ),
         'DEFAULT_AUTHENTICATION_CLASSES': (
-            'rest_framework_simplejwt.authentication.JWTAuthentication',
+                'rest_framework_simplejwt.authentication.JWTAuthentication',
         )
 }
+
+AUTH_USER_MODEL = 'medico.User'
 
 ROOT_URLCONF = 'hospital.urls'
 
@@ -99,10 +102,10 @@ WSGI_APPLICATION = 'hospital.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd7l4p06cpiejap',
-        'USER': 'oywzbypdvmtwtk',
-        'PASSWORD': '99fb7003d3dee90cbecc5b95c596f058c8824f96a9c4fdf5524c3b284f49bdf2',
-        'HOST': 'ec2-44-206-89-185.compute-1.amazonaws.com',
+        'NAME': 'd3ajn07gvu2luq',
+        'USER': 'laavekckatpqpv',
+        'PASSWORD': '87c37b9cdc7c0781d987fb34062b0d11e2e91295301752a2d29fe50c89ca5512',
+        'HOST': 'ec2-54-91-223-99.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
