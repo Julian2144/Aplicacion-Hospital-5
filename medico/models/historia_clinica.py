@@ -1,8 +1,15 @@
-
+from pyexpat import model
 from django.db import models
-from.user import User 
+from .paciente import Paciente
+from .personal_medico import personal_medico
+from .familiar  import Familiar
+
+
 class historia_clinica (models.Model):
-    id = models. CharField (primary_key=True,unique=True,max_length=70)
+    ID_historia_clinica = models (primary_key=True,unique=True,max_length=70)
+    CC_Paciente = models. ForeignKey (Paciente, related_name='historia_clinica', on_delete=models.CASCADE)
+    CC_Pmedico = models.ForeignKey (personal_medico, related_name='historia_clinica', on_delete=models.CASCADE)
+    CC_familiar = models. ForeignKey (Familiar, related_name='historia_clinica', on_delete=models.CASCADE)
     Enfermedades_actuales = models. CharField ('Enfer',max_length=70)
     Cirugias = models. CharField ('Cirug',max_length=70)
     Alergia = models. CharField ('Alerg',max_length=70)
@@ -10,10 +17,4 @@ class historia_clinica (models.Model):
     Medicamentos = models. CharField ('Medic',max_length=70)
     Sugerencia_de_Cuidado = models. CharField ('Suger',max_length=70)
     Diagnostico = models. CharField ('Diag',max_length=70)
-    Paciente_Asignado = models. CharField ('Paciente',max_length=70)
-    Familiar_Asignado = models. CharField ('Familiar',max_length=70)
-    Medico_Asignado = models. CharField ('Personal_medico',max_length=70)
-    idUser = models.ForeignKey(User, related_name='paciente', on_delete=models.CASCADE)
-    idUser = models.ForeignKey(User, related_name='personal_medico', on_delete=models.CASCADE)
-    idUser = models.ForeignKey(User, related_name='signos_vitales', on_delete=models.CASCADE)
     

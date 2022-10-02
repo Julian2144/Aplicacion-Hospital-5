@@ -1,12 +1,12 @@
-from medico.models.user import User
+from medico.models.personal_medico import personal_medico
 from rest_framework import serializers
 from medico.models.account import Account
 from medico.serializers.accountSerializer import AccountSerializer
 
 class personal_medicoSerializer(serializers.ModelSerializer):
-    account = AccountSerializer()
+    acount = AccountSerializer()
     class Meta:
-        model = User
-        fields = ['Nombre', 'Apellido', 'Cargo', 'Celular', 'Correo', 'Especialidad', 'Paciente_Asignado']
+        model = personal_medico
+        fields = ['nombre', 'apellido', 'cargo', 'celular', 'correo', 'especialidad', 'paciente_asignado']
 
          
